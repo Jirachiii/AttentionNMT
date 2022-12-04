@@ -18,7 +18,7 @@ data:
         path_tgt: data/trg/trg-val.txt
 
 # General opts
-save_model: multi_head_attn
+save_model: avg_attn
 save_checkpoint_steps: 10000
 valid_steps: 2000
 train_steps: 40000
@@ -55,6 +55,7 @@ normalization: "tokens"
 # Model
 encoder_type: transformer
 decoder_type: transformer
+self_attn_type: average
 position_encoding: true
 enc_layers: 6
 dec_layers: 6

@@ -1,0 +1,495 @@
+[2022-12-04 01:03:10,210 INFO] Missing transforms field for corpus_1 data, set to default: [].
+[2022-12-04 01:03:10,210 WARNING] Corpus corpus_1's weight should be given. We default it to 1 for you.
+[2022-12-04 01:03:10,210 INFO] Missing transforms field for valid data, set to default: [].
+[2022-12-04 01:03:10,210 INFO] Parsed 2 corpora from -data.
+[2022-12-04 01:03:10,210 INFO] Get special vocabs from Transforms: {'src': set(), 'tgt': set()}.
+[2022-12-04 01:03:10,210 INFO] Loading vocab from text file...
+[2022-12-04 01:03:10,210 INFO] Loading src vocabulary from run/test.vocab.src
+[2022-12-04 01:03:10,237 INFO] Loaded src vocab has 25964 tokens.
+[2022-12-04 01:03:10,243 INFO] Loading tgt vocabulary from run/test.vocab.tgt
+[2022-12-04 01:03:10,321 INFO] Loaded tgt vocab has 47385 tokens.
+[2022-12-04 01:03:10,332 INFO] Building fields with vocab in counters...
+[2022-12-04 01:03:10,373 INFO]  * tgt vocab size: 47389.
+[2022-12-04 01:03:10,392 INFO]  * src vocab size: 25966.
+[2022-12-04 01:03:10,394 INFO]  * src vocab size = 25966
+[2022-12-04 01:03:10,394 INFO]  * tgt vocab size = 47389
+[2022-12-04 01:03:10,395 INFO] Building model...
+[2022-12-04 01:03:12,738 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(25966, 512, padding_idx=1)
+        )
+        (pe): PositionalEncoding(
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+    (transformer): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(47389, 512, padding_idx=1)
+        )
+        (pe): PositionalEncoding(
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+    (transformer_layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+      )
+      (2): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+      )
+      (3): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+      )
+      (4): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+      )
+      (5): TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=512, out_features=512, bias=True)
+          (linear_values): Linear(in_features=512, out_features=512, bias=True)
+          (linear_query): Linear(in_features=512, out_features=512, bias=True)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=512, out_features=2048, bias=True)
+          (w_2): Linear(in_features=2048, out_features=512, bias=True)
+          (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (relu): ReLU()
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (layer_norm_2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (drop): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=512, out_features=47389, bias=False)
+    (1): Cast()
+    (2): LogSoftmax(dim=-1)
+  )
+)
+[2022-12-04 01:03:12,740 INFO] encoder: 32209920
+[2022-12-04 01:03:12,740 INFO] decoder: 73751552
+[2022-12-04 01:03:12,740 INFO] * number of parameters: 105961472
+[2022-12-04 01:03:12,742 INFO] Starting training on GPU: [0]
+[2022-12-04 01:03:12,742 INFO] Start training loop and validate every 2000 steps...
+[2022-12-04 01:03:12,742 INFO] corpus_1's transforms: TransformPipe()
+[2022-12-04 01:03:12,742 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:05:56,704 INFO] Step 1000/40000; acc:  34.19; ppl: 64.01; xent: 4.16; lr: 0.00100; 4554/5303 tok/s;    164 sec
+[2022-12-04 01:07:45,538 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:08:43,058 INFO] Step 2000/40000; acc:  58.39; ppl:  9.19; xent: 2.22; lr: 0.00100; 4491/5224 tok/s;    330 sec
+[2022-12-04 01:08:43,058 INFO] valid's transforms: TransformPipe()
+[2022-12-04 01:08:43,059 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:09:11,715 INFO] Validation perplexity: 8.20698
+[2022-12-04 01:09:11,715 INFO] Validation accuracy: 63.8674
+[2022-12-04 01:11:57,393 INFO] Step 3000/40000; acc:  66.24; ppl:  5.06; xent: 1.62; lr: 0.00100; 3847/4476 tok/s;    525 sec
+[2022-12-04 01:12:51,105 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:14:44,242 INFO] Step 4000/40000; acc:  70.75; ppl:  3.69; xent: 1.31; lr: 0.00100; 4476/5210 tok/s;    691 sec
+[2022-12-04 01:14:44,243 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:15:13,179 INFO] Validation perplexity: 5.27924
+[2022-12-04 01:15:13,180 INFO] Validation accuracy: 69.7163
+[2022-12-04 01:17:54,466 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:17:58,901 INFO] Step 5000/40000; acc:  74.06; ppl:  3.00; xent: 1.10; lr: 0.00100; 3837/4464 tok/s;    886 sec
+[2022-12-04 01:20:43,696 INFO] Step 6000/40000; acc:  76.55; ppl:  2.60; xent: 0.96; lr: 0.00100; 4537/5280 tok/s;   1051 sec
+[2022-12-04 01:20:43,697 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:21:12,337 INFO] Validation perplexity: 4.83964
+[2022-12-04 01:21:12,337 INFO] Validation accuracy: 71.2926
+[2022-12-04 01:22:58,620 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:23:59,808 INFO] Step 7000/40000; acc:  78.83; ppl:  2.33; xent: 0.85; lr: 0.00100; 3808/4430 tok/s;   1247 sec
+[2022-12-04 01:26:43,525 INFO] Step 8000/40000; acc:  80.71; ppl:  2.15; xent: 0.77; lr: 0.00100; 4570/5316 tok/s;   1411 sec
+[2022-12-04 01:26:43,526 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:27:12,126 INFO] Validation perplexity: 4.77671
+[2022-12-04 01:27:12,126 INFO] Validation accuracy: 72.008
+[2022-12-04 01:28:45,591 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:29:57,273 INFO] Step 9000/40000; acc:  82.18; ppl:  2.01; xent: 0.70; lr: 0.00100; 3853/4485 tok/s;   1605 sec
+[2022-12-04 01:32:43,925 INFO] Step 10000/40000; acc:  83.32; ppl:  1.93; xent: 0.66; lr: 0.00100; 4487/5226 tok/s;   1771 sec
+[2022-12-04 01:32:43,925 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:33:13,333 INFO] Validation perplexity: 4.7336
+[2022-12-04 01:33:13,333 INFO] Validation accuracy: 72.5203
+[2022-12-04 01:33:13,495 INFO] Saving checkpoint multi_head_attn_step_10000.pt
+[2022-12-04 01:33:53,251 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:36:01,888 INFO] Step 11000/40000; acc:  84.27; ppl:  1.85; xent: 0.62; lr: 0.00100; 3772/4385 tok/s;   1969 sec
+[2022-12-04 01:38:28,930 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:38:47,650 INFO] Step 12000/40000; acc:  85.18; ppl:  1.78; xent: 0.58; lr: 0.00100; 4501/5239 tok/s;   2135 sec
+[2022-12-04 01:38:47,650 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:39:16,116 INFO] Validation perplexity: 4.81926
+[2022-12-04 01:39:16,117 INFO] Validation accuracy: 72.7785
+[2022-12-04 01:41:58,277 INFO] Step 13000/40000; acc:  85.92; ppl:  1.73; xent: 0.55; lr: 0.00100; 3925/4569 tok/s;   2326 sec
+[2022-12-04 01:43:29,192 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:44:39,805 INFO] Step 14000/40000; acc:  86.64; ppl:  1.68; xent: 0.52; lr: 0.00100; 4620/5374 tok/s;   2487 sec
+[2022-12-04 01:44:39,806 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:45:08,781 INFO] Validation perplexity: 4.84393
+[2022-12-04 01:45:08,781 INFO] Validation accuracy: 72.9801
+[2022-12-04 01:47:55,849 INFO] Step 15000/40000; acc:  87.24; ppl:  1.65; xent: 0.50; lr: 0.00100; 3817/4442 tok/s;   2683 sec
+[2022-12-04 01:49:12,114 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:50:38,971 INFO] Step 16000/40000; acc:  87.82; ppl:  1.61; xent: 0.48; lr: 0.00100; 4578/5328 tok/s;   2846 sec
+[2022-12-04 01:50:38,972 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:51:07,949 INFO] Validation perplexity: 4.97185
+[2022-12-04 01:51:07,949 INFO] Validation accuracy: 72.8518
+[2022-12-04 01:53:53,095 INFO] Step 17000/40000; acc:  88.34; ppl:  1.58; xent: 0.46; lr: 0.00100; 3850/4480 tok/s;   3040 sec
+[2022-12-04 01:54:16,579 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:56:40,553 INFO] Step 18000/40000; acc:  88.72; ppl:  1.56; xent: 0.44; lr: 0.00100; 4464/5190 tok/s;   3208 sec
+[2022-12-04 01:56:40,553 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 01:57:08,981 INFO] Validation perplexity: 4.98439
+[2022-12-04 01:57:08,981 INFO] Validation accuracy: 73.1009
+[2022-12-04 01:59:23,075 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 01:59:55,391 INFO] Step 19000/40000; acc:  89.18; ppl:  1.53; xent: 0.43; lr: 0.00100; 3830/4458 tok/s;   3403 sec
+[2022-12-04 02:02:41,011 INFO] Step 20000/40000; acc:  89.58; ppl:  1.51; xent: 0.41; lr: 0.00100; 4514/5259 tok/s;   3568 sec
+[2022-12-04 02:02:41,012 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:03:09,656 INFO] Validation perplexity: 5.07458
+[2022-12-04 02:03:09,656 INFO] Validation accuracy: 73.1715
+[2022-12-04 02:03:09,813 INFO] Saving checkpoint multi_head_attn_step_20000.pt
+[2022-12-04 02:04:25,180 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:05:52,947 INFO] Step 21000/40000; acc:  89.88; ppl:  1.49; xent: 0.40; lr: 0.00100; 3894/4525 tok/s;   3760 sec
+[2022-12-04 02:08:37,639 INFO] Step 22000/40000; acc:  90.26; ppl:  1.48; xent: 0.39; lr: 0.00100; 4535/5280 tok/s;   3925 sec
+[2022-12-04 02:08:37,640 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:09:06,537 INFO] Validation perplexity: 5.09154
+[2022-12-04 02:09:06,537 INFO] Validation accuracy: 73.2929
+[2022-12-04 02:10:13,031 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:11:52,185 INFO] Step 23000/40000; acc:  90.48; ppl:  1.46; xent: 0.38; lr: 0.00100; 3839/4466 tok/s;   4119 sec
+[2022-12-04 02:14:36,448 INFO] Step 24000/40000; acc:  90.87; ppl:  1.44; xent: 0.37; lr: 0.00100; 4549/5295 tok/s;   4284 sec
+[2022-12-04 02:14:36,449 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:15:05,349 INFO] Validation perplexity: 5.17839
+[2022-12-04 02:15:05,349 INFO] Validation accuracy: 73.1159
+[2022-12-04 02:15:14,261 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:17:50,246 INFO] Step 25000/40000; acc:  91.04; ppl:  1.43; xent: 0.36; lr: 0.00100; 3856/4485 tok/s;   4478 sec
+[2022-12-04 02:19:48,123 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:20:36,577 INFO] Step 26000/40000; acc:  91.30; ppl:  1.42; xent: 0.35; lr: 0.00100; 4489/5221 tok/s;   4644 sec
+[2022-12-04 02:20:36,578 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:21:04,976 INFO] Validation perplexity: 5.23533
+[2022-12-04 02:21:04,976 INFO] Validation accuracy: 73.1314
+[2022-12-04 02:23:48,827 INFO] Step 27000/40000; acc:  91.61; ppl:  1.41; xent: 0.34; lr: 0.00100; 3889/4531 tok/s;   4836 sec
+[2022-12-04 02:24:51,286 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:26:35,800 INFO] Step 28000/40000; acc:  91.69; ppl:  1.40; xent: 0.34; lr: 0.00100; 4474/5202 tok/s;   5003 sec
+[2022-12-04 02:26:35,801 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:27:04,522 INFO] Validation perplexity: 5.16977
+[2022-12-04 02:27:04,522 INFO] Validation accuracy: 73.3415
+[2022-12-04 02:29:49,368 INFO] Step 29000/40000; acc:  91.98; ppl:  1.39; xent: 0.33; lr: 0.00100; 3859/4493 tok/s;   5197 sec
+[2022-12-04 02:30:40,904 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:32:36,167 INFO] Step 30000/40000; acc:  92.10; ppl:  1.38; xent: 0.32; lr: 0.00100; 4478/5211 tok/s;   5363 sec
+[2022-12-04 02:32:36,168 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:33:04,698 INFO] Validation perplexity: 5.29658
+[2022-12-04 02:33:04,698 INFO] Validation accuracy: 73.2276
+[2022-12-04 02:33:04,855 INFO] Saving checkpoint multi_head_attn_step_30000.pt
+[2022-12-04 02:35:46,682 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:35:52,697 INFO] Step 31000/40000; acc:  92.32; ppl:  1.37; xent: 0.32; lr: 0.00100; 3801/4423 tok/s;   5560 sec
+[2022-12-04 02:38:37,234 INFO] Step 32000/40000; acc:  92.48; ppl:  1.36; xent: 0.31; lr: 0.00100; 4542/5289 tok/s;   5724 sec
+[2022-12-04 02:38:37,235 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:39:05,493 INFO] Validation perplexity: 5.29402
+[2022-12-04 02:39:05,493 INFO] Validation accuracy: 73.3405
+[2022-12-04 02:40:48,253 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:41:50,954 INFO] Step 33000/40000; acc:  92.58; ppl:  1.36; xent: 0.31; lr: 0.00100; 3857/4485 tok/s;   5918 sec
+[2022-12-04 02:44:31,938 INFO] Step 34000/40000; acc:  92.86; ppl:  1.35; xent: 0.30; lr: 0.00100; 4646/5405 tok/s;   6079 sec
+[2022-12-04 02:44:31,939 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:45:00,510 INFO] Validation perplexity: 5.39398
+[2022-12-04 02:45:00,510 INFO] Validation accuracy: 73.349
+[2022-12-04 02:45:48,796 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:47:44,512 INFO] Step 35000/40000; acc:  92.88; ppl:  1.34; xent: 0.30; lr: 0.00100; 3876/4510 tok/s;   6272 sec
+[2022-12-04 02:50:30,599 INFO] Step 36000/40000; acc:  93.05; ppl:  1.34; xent: 0.29; lr: 0.00100; 4493/5230 tok/s;   6438 sec
+[2022-12-04 02:50:30,600 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:50:58,989 INFO] Validation perplexity: 5.45105
+[2022-12-04 02:50:58,990 INFO] Validation accuracy: 73.2886
+[2022-12-04 02:51:34,684 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:53:44,773 INFO] Step 37000/40000; acc:  93.25; ppl:  1.33; xent: 0.28; lr: 0.00100; 3850/4482 tok/s;   6632 sec
+[2022-12-04 02:56:09,988 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 02:56:29,920 INFO] Step 38000/40000; acc:  93.34; ppl:  1.32; xent: 0.28; lr: 0.00100; 4522/5258 tok/s;   6797 sec
+[2022-12-04 02:56:29,921 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 02:56:58,389 INFO] Validation perplexity: 5.39525
+[2022-12-04 02:56:58,389 INFO] Validation accuracy: 73.2335
+[2022-12-04 02:59:41,434 INFO] Step 39000/40000; acc:  93.46; ppl:  1.32; xent: 0.28; lr: 0.00100; 3906/4548 tok/s;   6989 sec
+[2022-12-04 03:01:10,784 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-04 03:02:26,998 INFO] Step 40000/40000; acc:  93.54; ppl:  1.31; xent: 0.27; lr: 0.00100; 4511/5246 tok/s;   7154 sec
+[2022-12-04 03:02:26,999 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-04 03:02:55,672 INFO] Validation perplexity: 5.42619
+[2022-12-04 03:02:55,672 INFO] Validation accuracy: 73.4132
+[2022-12-04 03:02:55,832 INFO] Saving checkpoint multi_head_attn_step_40000.pt
+
+{
+ "name": "BLEU",
+ "score": 42.6,
+ "signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.3.1",
+ "verbose_score": "68.4/47.1/35.9/28.4 (BP = 1.000 ratio = 1.017 hyp_len = 195506 ref_len = 192165)",
+ "nrefs": "1",
+ "case": "mixed",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.3.1"
+}
