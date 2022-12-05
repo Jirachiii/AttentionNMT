@@ -1,0 +1,189 @@
+[2022-12-06 00:11:56,834 INFO] Missing transforms field for corpus_1 data, set to default: [].
+[2022-12-06 00:11:56,834 WARNING] Corpus corpus_1's weight should be given. We default it to 1 for you.
+[2022-12-06 00:11:56,834 INFO] Missing transforms field for valid data, set to default: [].
+[2022-12-06 00:11:56,834 INFO] Parsed 2 corpora from -data.
+[2022-12-06 00:11:56,834 INFO] Get special vocabs from Transforms: {'src': set(), 'tgt': set()}.
+[2022-12-06 00:11:56,834 INFO] Loading vocab from text file...
+[2022-12-06 00:11:56,834 INFO] Loading src vocabulary from run/test.vocab.src
+[2022-12-06 00:11:56,867 INFO] Loaded src vocab has 31563 tokens.
+[2022-12-06 00:11:56,874 INFO] Loading tgt vocabulary from run/test.vocab.tgt
+[2022-12-06 00:11:56,967 INFO] Loaded tgt vocab has 58824 tokens.
+[2022-12-06 00:11:56,981 INFO] Building fields with vocab in counters...
+[2022-12-06 00:11:57,060 INFO]  * tgt vocab size: 50004.
+[2022-12-06 00:11:57,083 INFO]  * src vocab size: 31565.
+[2022-12-06 00:11:57,085 INFO]  * src vocab size = 31565
+[2022-12-06 00:11:57,085 INFO]  * tgt vocab size = 50004
+[2022-12-06 00:11:57,086 INFO] Building model...
+[2022-12-06 00:11:58,999 INFO] NMTModel(
+  (encoder): RNNEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(31565, 512, padding_idx=1)
+        )
+      )
+    )
+    (rnn): GRU(512, 256, num_layers=2, dropout=0.1, bidirectional=True)
+  )
+  (decoder): InputFeedRNNDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(50004, 512, padding_idx=1)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.1, inplace=False)
+    (rnn): StackedGRU(
+      (dropout): Dropout(p=0.1, inplace=False)
+      (layers): ModuleList(
+        (0): GRUCell(1024, 512)
+        (1): GRUCell(512, 512)
+      )
+    )
+    (attn): GlobalAttention(
+      (linear_in): Linear(in_features=512, out_features=512, bias=False)
+      (linear_out): Linear(in_features=1024, out_features=512, bias=False)
+    )
+  )
+  (generator): Sequential(
+    (0): Linear(in_features=512, out_features=50004, bias=False)
+    (1): Cast()
+    (2): LogSoftmax(dim=-1)
+  )
+)
+[2022-12-06 00:11:58,999 INFO] encoder: 18526720
+[2022-12-06 00:11:58,999 INFO] decoder: 55928832
+[2022-12-06 00:11:58,999 INFO] * number of parameters: 74455552
+[2022-12-06 00:11:59,001 INFO] Starting training on GPU: [0]
+[2022-12-06 00:11:59,001 INFO] Start training loop and validate every 2000 steps...
+[2022-12-06 00:11:59,001 INFO] corpus_1's transforms: TransformPipe()
+[2022-12-06 00:11:59,001 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:13:46,812 INFO] Step 1000/40000; acc:  42.06; ppl: 39.42; xent: 3.67; lr: 0.00100; 6929/8067 tok/s;    108 sec
+[2022-12-06 00:15:04,201 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:15:54,754 INFO] Step 2000/40000; acc:  56.20; ppl: 11.20; xent: 2.42; lr: 0.00100; 5833/6788 tok/s;    236 sec
+[2022-12-06 00:15:54,754 INFO] valid's transforms: TransformPipe()
+[2022-12-06 00:15:54,754 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:16:20,465 INFO] Validation perplexity: 10.3241
+[2022-12-06 00:16:20,466 INFO] Validation accuracy: 59.9332
+[2022-12-06 00:18:39,898 INFO] Step 3000/40000; acc:  61.56; ppl:  7.07; xent: 1.96; lr: 0.00100; 4527/5272 tok/s;    401 sec
+[2022-12-06 00:19:23,924 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:21:00,985 INFO] Step 4000/40000; acc:  65.34; ppl:  5.35; xent: 1.68; lr: 0.00100; 5296/6155 tok/s;    542 sec
+[2022-12-06 00:21:00,986 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:21:26,208 INFO] Validation perplexity: 7.09186
+[2022-12-06 00:21:26,208 INFO] Validation accuracy: 64.4454
+[2022-12-06 00:23:44,781 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:23:49,481 INFO] Step 5000/40000; acc:  68.11; ppl:  4.39; xent: 1.48; lr: 0.00100; 4431/5158 tok/s;    710 sec
+[2022-12-06 00:25:53,764 INFO] Step 6000/40000; acc:  69.79; ppl:  3.93; xent: 1.37; lr: 0.00100; 6013/7009 tok/s;    835 sec
+[2022-12-06 00:25:53,764 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:26:11,463 INFO] Validation perplexity: 6.16817
+[2022-12-06 00:26:11,463 INFO] Validation accuracy: 66.2184
+[2022-12-06 00:27:19,949 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:27:59,602 INFO] Step 7000/40000; acc:  71.25; ppl:  3.60; xent: 1.28; lr: 0.00100; 5940/6901 tok/s;    961 sec
+[2022-12-06 00:29:49,464 INFO] Step 8000/40000; acc:  72.65; ppl:  3.35; xent: 1.21; lr: 0.00100; 6806/7922 tok/s;   1070 sec
+[2022-12-06 00:29:49,465 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:30:07,279 INFO] Validation perplexity: 5.83131
+[2022-12-06 00:30:07,279 INFO] Validation accuracy: 67.2964
+[2022-12-06 00:31:10,451 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:31:58,131 INFO] Step 9000/40000; acc:  74.21; ppl:  3.11; xent: 1.13; lr: 0.00100; 5803/6754 tok/s;   1199 sec
+[2022-12-06 00:33:47,025 INFO] Step 10000/40000; acc:  75.06; ppl:  3.00; xent: 1.10; lr: 0.00100; 6869/7987 tok/s;   1308 sec
+[2022-12-06 00:33:47,025 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:34:04,857 INFO] Validation perplexity: 5.76756
+[2022-12-06 00:34:04,857 INFO] Validation accuracy: 67.6781
+[2022-12-06 00:34:05,027 INFO] Saving checkpoint run/luong/luong_attn_step_10000.pt
+[2022-12-06 00:34:30,518 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:35:55,758 INFO] Step 11000/40000; acc:  75.57; ppl:  2.92; xent: 1.07; lr: 0.00100; 5802/6757 tok/s;   1437 sec
+[2022-12-06 00:37:33,525 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:37:46,291 INFO] Step 12000/40000; acc:  76.65; ppl:  2.79; xent: 1.03; lr: 0.00100; 6753/7858 tok/s;   1547 sec
+[2022-12-06 00:37:46,291 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:38:03,868 INFO] Validation perplexity: 5.74535
+[2022-12-06 00:38:03,868 INFO] Validation accuracy: 67.9583
+[2022-12-06 00:39:53,866 INFO] Step 13000/40000; acc:  77.09; ppl:  2.73; xent: 1.01; lr: 0.00100; 5862/6819 tok/s;   1675 sec
+[2022-12-06 00:40:53,952 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:41:43,393 INFO] Step 14000/40000; acc:  77.72; ppl:  2.66; xent: 0.98; lr: 0.00100; 6815/7931 tok/s;   1784 sec
+[2022-12-06 00:41:43,393 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:42:00,947 INFO] Validation perplexity: 5.5885
+[2022-12-06 00:42:00,947 INFO] Validation accuracy: 68.4727
+[2022-12-06 00:43:50,398 INFO] Step 15000/40000; acc:  78.28; ppl:  2.60; xent: 0.96; lr: 0.00100; 5889/6846 tok/s;   1911 sec
+[2022-12-06 00:44:42,266 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:45:39,618 INFO] Step 16000/40000; acc:  78.17; ppl:  2.60; xent: 0.96; lr: 0.00100; 6840/7964 tok/s;   2021 sec
+[2022-12-06 00:45:39,618 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:45:57,074 INFO] Validation perplexity: 5.78748
+[2022-12-06 00:45:57,074 INFO] Validation accuracy: 68.4138
+[2022-12-06 00:47:47,459 INFO] Step 17000/40000; acc:  78.68; ppl:  2.56; xent: 0.94; lr: 0.00100; 5847/6795 tok/s;   2148 sec
+[2022-12-06 00:48:03,543 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:49:37,890 INFO] Step 18000/40000; acc:  77.95; ppl:  2.63; xent: 0.97; lr: 0.00100; 6764/7884 tok/s;   2259 sec
+[2022-12-06 00:49:37,890 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:49:55,236 INFO] Validation perplexity: 5.89495
+[2022-12-06 00:49:55,237 INFO] Validation accuracy: 68.007
+[2022-12-06 00:51:22,473 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:51:43,973 INFO] Step 19000/40000; acc:  77.93; ppl:  2.63; xent: 0.97; lr: 0.00100; 5917/6893 tok/s;   2385 sec
+[2022-12-06 00:53:33,315 INFO] Step 20000/40000; acc:  78.78; ppl:  2.55; xent: 0.94; lr: 0.00100; 6846/7965 tok/s;   2494 sec
+[2022-12-06 00:53:33,316 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:53:50,608 INFO] Validation perplexity: 5.96954
+[2022-12-06 00:53:50,608 INFO] Validation accuracy: 68.1674
+[2022-12-06 00:53:50,770 INFO] Saving checkpoint run/luong/luong_attn_step_20000.pt
+[2022-12-06 00:54:42,208 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:55:40,555 INFO] Step 21000/40000; acc:  77.84; ppl:  2.65; xent: 0.98; lr: 0.00100; 5873/6823 tok/s;   2622 sec
+[2022-12-06 00:57:30,976 INFO] Step 22000/40000; acc:  77.88; ppl:  2.65; xent: 0.97; lr: 0.00100; 6764/7881 tok/s;   2732 sec
+[2022-12-06 00:57:30,976 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 00:57:48,313 INFO] Validation perplexity: 6.01704
+[2022-12-06 00:57:48,313 INFO] Validation accuracy: 68.0936
+[2022-12-06 00:58:31,318 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 00:59:38,670 INFO] Step 23000/40000; acc:  76.52; ppl:  2.82; xent: 1.04; lr: 0.00100; 5849/6805 tok/s;   2860 sec
+[2022-12-06 01:01:27,205 INFO] Step 24000/40000; acc:  77.28; ppl:  2.73; xent: 1.00; lr: 0.00100; 6886/8007 tok/s;   2968 sec
+[2022-12-06 01:01:27,205 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:01:44,663 INFO] Validation perplexity: 6.13189
+[2022-12-06 01:01:44,663 INFO] Validation accuracy: 67.6118
+[2022-12-06 01:01:50,843 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:03:36,136 INFO] Step 25000/40000; acc:  75.35; ppl:  2.98; xent: 1.09; lr: 0.00100; 5797/6752 tok/s;   3097 sec
+[2022-12-06 01:04:52,858 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:05:25,597 INFO] Step 26000/40000; acc:  74.39; ppl:  3.10; xent: 1.13; lr: 0.00100; 6820/7931 tok/s;   3207 sec
+[2022-12-06 01:05:25,598 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:05:43,527 INFO] Validation perplexity: 7.33232
+[2022-12-06 01:05:43,528 INFO] Validation accuracy: 64.4769
+[2022-12-06 01:07:32,555 INFO] Step 27000/40000; acc:  73.73; ppl:  3.22; xent: 1.17; lr: 0.00100; 5886/6860 tok/s;   3334 sec
+[2022-12-06 01:08:12,979 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:09:22,454 INFO] Step 28000/40000; acc:  74.91; ppl:  3.05; xent: 1.12; lr: 0.00100; 6796/7905 tok/s;   3443 sec
+[2022-12-06 01:09:22,454 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:09:40,043 INFO] Validation perplexity: 6.70219
+[2022-12-06 01:09:40,043 INFO] Validation accuracy: 66.1195
+[2022-12-06 01:11:28,785 INFO] Step 29000/40000; acc:  74.55; ppl:  3.11; xent: 1.13; lr: 0.00100; 5917/6881 tok/s;   3570 sec
+[2022-12-06 01:12:02,290 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:13:19,201 INFO] Step 30000/40000; acc:  74.27; ppl:  3.14; xent: 1.14; lr: 0.00100; 6767/7872 tok/s;   3680 sec
+[2022-12-06 01:13:19,201 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:13:37,007 INFO] Validation perplexity: 6.91452
+[2022-12-06 01:13:37,007 INFO] Validation accuracy: 65.6853
+[2022-12-06 01:13:37,173 INFO] Saving checkpoint run/luong/luong_attn_step_30000.pt
+[2022-12-06 01:15:23,538 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:15:28,039 INFO] Step 31000/40000; acc:  73.16; ppl:  3.30; xent: 1.19; lr: 0.00100; 5796/6746 tok/s;   3809 sec
+[2022-12-06 01:17:16,699 INFO] Step 32000/40000; acc:  67.40; ppl:  4.38; xent: 1.48; lr: 0.00100; 6879/8008 tok/s;   3918 sec
+[2022-12-06 01:17:16,699 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:17:33,716 INFO] Validation perplexity: 8.38709
+[2022-12-06 01:17:33,716 INFO] Validation accuracy: 62.3061
+[2022-12-06 01:18:41,623 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:19:21,642 INFO] Step 33000/40000; acc:  65.79; ppl:  4.74; xent: 1.56; lr: 0.00100; 5979/6952 tok/s;   4043 sec
+[2022-12-06 01:21:10,393 INFO] Step 34000/40000; acc:  60.94; ppl:  6.47; xent: 1.87; lr: 0.00100; 6873/8003 tok/s;   4151 sec
+[2022-12-06 01:21:10,393 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:21:27,981 INFO] Validation perplexity: 18.1433
+[2022-12-06 01:21:27,981 INFO] Validation accuracy: 50.4719
+[2022-12-06 01:21:59,706 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:23:18,540 INFO] Step 35000/40000; acc:  51.54; ppl: 11.51; xent: 2.44; lr: 0.00100; 5825/6777 tok/s;   4280 sec
+[2022-12-06 01:25:08,627 INFO] Step 36000/40000; acc:  55.56; ppl:  8.75; xent: 2.17; lr: 0.00100; 6785/7898 tok/s;   4390 sec
+[2022-12-06 01:25:08,627 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:25:26,444 INFO] Validation perplexity: 13.0001
+[2022-12-06 01:25:26,444 INFO] Validation accuracy: 54.7087
+[2022-12-06 01:25:50,059 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:27:15,210 INFO] Step 37000/40000; acc:  57.79; ppl:  7.52; xent: 2.02; lr: 0.00100; 5907/6872 tok/s;   4516 sec
+[2022-12-06 01:28:51,587 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:29:05,484 INFO] Step 38000/40000; acc:  59.24; ppl:  6.88; xent: 1.93; lr: 0.00100; 6774/7886 tok/s;   4626 sec
+[2022-12-06 01:29:05,485 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:29:22,849 INFO] Validation perplexity: 11.9468
+[2022-12-06 01:29:22,849 INFO] Validation accuracy: 55.8535
+[2022-12-06 01:31:13,370 INFO] Step 39000/40000; acc:  60.38; ppl:  6.43; xent: 1.86; lr: 0.00100; 5849/6801 tok/s;   4754 sec
+[2022-12-06 01:32:11,458 INFO] Loading ParallelCorpus(data/src/src-train.txt, data/trg/trg-train.txt, align=None)...
+[2022-12-06 01:33:01,762 INFO] Step 40000/40000; acc:  61.67; ppl:  6.00; xent: 1.79; lr: 0.00100; 6886/8017 tok/s;   4863 sec
+[2022-12-06 01:33:01,762 INFO] Loading ParallelCorpus(data/src/src-val.txt, data/trg/trg-val.txt, align=None)...
+[2022-12-06 01:33:19,332 INFO] Validation perplexity: 11.3368
+[2022-12-06 01:33:19,332 INFO] Validation accuracy: 56.879
+[2022-12-06 01:33:19,498 INFO] Saving checkpoint run/luong/luong_attn_step_40000.pt
