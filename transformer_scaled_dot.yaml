@@ -1,12 +1,10 @@
-# 
-
 ## Where the samples will be written
 save_data: run/test
 ## Where the vocab(s) will be written
 src_vocab: run/test.vocab.src
 tgt_vocab: run/test.vocab.tgt
 # Prevent overwriting existing files in the folder
-overwrite: False
+overwrite: true
 
 # Corpus opts:
 data:
@@ -49,8 +47,8 @@ learning_rate: 0.001
 max_grad_norm: 0
 label_smoothing: 0.1
 #param_init: 0
-param_init_glorot: true
-normalization: "tokens"
+param_init_glorot: true # Required for transformer. Default: false
+normalization: "tokens" # Normalization method of the gradient.
 
 # Model
 encoder_type: transformer
@@ -59,11 +57,14 @@ position_encoding: true
 enc_layers: 6
 dec_layers: 6
 heads: 8
-hidden_size: 512
-word_vec_size: 512
-enc_rnn_size: 512
-dec_rnn_size: 512
-transformer_ff: 2048 # Size of hidden transformer feed-forward
+hidden_size: 512 # RNN hidden size
+word_vec_size: 512 # Word embedding size
+enc_rnn_size: 512 # Here because the model doesn't work otherwise
+dec_rnn_size: 512 # Equally useful compared to the line above it
+transformer_ff: 2048 # Size of hidden transformer feed-forward, taken from Transformer paper
 dropout_steps: [0]
 dropout: [0.1]
+
+# Attention
+self_attn_type: scaled-dot
 attention_dropout: [0.1]

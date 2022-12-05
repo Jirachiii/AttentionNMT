@@ -16,7 +16,7 @@ data:
         path_tgt: data/trg/trg-val.txt
 
 # General opts
-save_model: avg_attn
+save_model: run/bahdanau/bahdanau_attn
 save_checkpoint_steps: 10000
 valid_steps: 2000
 train_steps: 40000
@@ -45,26 +45,22 @@ learning_rate: 0.001
 # start_decay_steps: 10000 # Start decaying lr after X steps
 # decay_steps: 4000 # Decay lr after every X steps
 max_grad_norm: 0
-label_smoothing: 0.1
+label_smoothing: 0.1 # Read here https://arxiv.org/abs/1512.00567 ?? :D ?
 #param_init: 0
-param_init_glorot: true 
 normalization: "tokens"
 
 # Model
-encoder_type: transformer
-decoder_type: transformer
-position_encoding: true
-enc_layers: 6
-dec_layers: 6
-heads: 8
-hidden_size: 512
+encoder_type: brnn
+decoder_type: rnn
+layers: 2
 word_vec_size: 512
 enc_rnn_size: 512
 dec_rnn_size: 512
-transformer_ff: 2048 # Size of hidden transformer feed-forward
+hidden_size: 512
+rnn_type: GRU
 dropout_steps: [0]
 dropout: [0.1]
 
 # Attention
-self_attn_type: average
+global_attention: mlp # The attention type to use: dotprod or general (Luong) or MLP (Bahdanau)
 attention_dropout: [0.1]
