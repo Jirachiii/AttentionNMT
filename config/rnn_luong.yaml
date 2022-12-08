@@ -41,9 +41,9 @@ optim: "adam"
 learning_rate: 0.001
 # warmup_steps: 8000 # Number of warmup steps for custom decay.q
 # decay_method: "noam" # The lr becomes too small almost instantly so comment this out for now
-# learning_rate_decay: 0.00002 # If update_learning_rate, decay learning rate by this much if steps have gone past start_decay_steps
-# start_decay_steps: 10000 # Start decaying lr after X steps
-# decay_steps: 4000 # Decay lr after every X steps
+learning_rate_decay: 0.2 # If update_learning_rate, decay learning rate by this much if steps have gone past start_decay_steps
+start_decay_steps: 20000 # Start decaying lr after X steps
+decay_steps: 4000 # Decay lr after every X steps
 max_grad_norm: 0
 label_smoothing: 0.1 # Read here https://arxiv.org/abs/1512.00567 ?? :D ?
 #param_init: 0

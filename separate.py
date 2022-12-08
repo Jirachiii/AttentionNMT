@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import numpy as np
 import os
+MAX_LEN = 20
 
 def main():
     print("Source language - Target language: ")
@@ -28,6 +29,8 @@ def main():
 
     for line in lines:
         line_split = line.split('\t')
+        if len(line_split[0].split(' ')) > MAX_LEN or len(line_split[1].split(' ')) > MAX_LEN:
+            continue 
         phrases["src"].append(line_split[0])
         phrases["trg"].append(line_split[1])
     
