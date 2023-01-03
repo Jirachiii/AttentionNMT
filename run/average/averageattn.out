@@ -503,4 +503,16 @@ avg_attn_step_40000:
  "smooth": "exp",
  "version": "2.3.1"
 }
-
+avg_attn_step_40000 on test set of sentences length<=20: 
+{
+ "name": "BLEU",
+ "score": 73.4,
+ "signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.3.1",
+ "verbose_score": "86.2/76.2/70.1/65.4 (BP = 0.991 ratio = 0.991 hyp_len = 194853 ref_len = 196544)",
+ "nrefs": "1",
+ "case": "mixed",
+ "eff": "no",
+ "tok": "13a",
+ "smooth": "exp",
+ "version": "2.3.1"
+}
